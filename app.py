@@ -245,8 +245,13 @@ if st.button("🚀 Train RL Agent"):
 
     st.pyplot(line_plot(rewards, "RL Learning Curve", "Episode", "Reward"))
     st.pyplot(moving_avg_plot(rewards))
-    st.pyplot(simulate_trajectory(agent))
+    #st.pyplot(simulate_trajectory(agent))
 
-    st.subheader("Best Actions Learned by the Agent")
-    best_actions = {i: np.argmax(agent.Q[i]) for i in range(11)}
-    st.write(best_actions)
+    best_actions = {inv: int(np.argmax(agent.Q[inv])) for inv in range(11)}
+
+    st.subheader("Inventory → Best Action (order quantity)")
+    #st.json(best_actions)
+    st.table(
+        {"Inventory Level": list(best_actions.keys()),
+        "Best Action": list(best_actions.values())}
+    )
