@@ -14,3 +14,11 @@ python run.py
 
 #### **MacOS**
 python3 run.py
+
+### Code structure
+
+### Training, inference
+rl.py
+
+### Deployment artifact
+app.py
